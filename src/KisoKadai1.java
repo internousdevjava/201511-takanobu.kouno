@@ -14,12 +14,12 @@ public class KisoKadai1 {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args){
 
 		String s1 = null;
 		String s2 = null;
-        int a =0;
-        int b =0;
+		int a =0;
+		int b =0;
         int c =0;
         while(c==0){                    //while文開始
 		try {
@@ -38,10 +38,11 @@ public class KisoKadai1 {
 			}else{
 				break;
 			}
-           //例外処理 a<=0 a>100 . b<=0 b>100)の場合 再度入力を求める
-		} catch (Exception e) {
+		} catch (java.lang.NumberFormatException e) {
+			System.out.println("数字で入力してください");
+		}catch (Exception e) {
 			e.printStackTrace();
-		}      //catch文終了
+		}
         }      //while文終了
 			a = Integer.parseInt(s1);
 			b = Integer.parseInt(s2);
