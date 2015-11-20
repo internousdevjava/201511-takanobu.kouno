@@ -44,6 +44,8 @@ public class kisokadai2 {
 				System.out.println("小さいです");
 				}
 			continue;
+		} catch (java.lang.NumberFormatException e) {
+			System.out.println("1-100の範囲で入力してください");
         } catch (Exception e) {
 			e.printStackTrace();
         }
