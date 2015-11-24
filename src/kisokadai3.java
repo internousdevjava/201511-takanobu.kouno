@@ -7,7 +7,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-
 /**
  * @author internous
  *
@@ -19,50 +18,43 @@ public class kisokadai3 {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		 System.out.println("処理開始");
-
+		BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("フォルダ.ファイルを作成してください");
+		String FF =buf.readLine();  //FF(ファイル・フォルダ)のコンソール入力
 
 		//ファイルパスの指定
-		File newfile = new File("c:¥¥tmp¥¥Text.txt");
+	        File newfile = new File(FF);
 		//ディレクトリパスを習得
 		   File dir=new File(newfile.getParent());
 
-		    //ファイルの作成
-				if(newfile.exists()){
-					System.out.println("ファイルがありません。");
-					}else{
-					System.out.println("ファイルは存在しません。");
-				try{
-
-					if (newfile.createNewFile()){
-						System.out.println("新規ファイルを作成しました。");
-					}else{
-						System.out.println("ファイルを作成できませんでした。");
-					}
-					    }catch(IOException e){
-					    	//例外処理
-						   System.out.println(e);
-					}
+		   //フォルダの作成
+			if(!dir.exists()){    //!（否定　意味の逆転）　ディレクトリなかった場合
+				System.out.println("フォルダがありません。:"+newfile.getAbsolutePath());
+				dir.mkdirs();
+				System.out.println("フォルダを新規作成しました。");
+				}else{
+				System.out.println("フォルダは作成済みです。");
 				}
-		    //ディレクトリの作成
-		    if(dir.exists()){
-		        System.out.println("ディレクトリは作成済み");
-		    }
-	            try{
-	                if ( dir.createNewFile() ) {
-	                    // ディレクトリの作成に成功
-	                    String path = dir.getPath();
-	                    System.out.println(path+"を作成");
-	                }else{
-	                    // ディレクトリの作成に失敗
-	                    System.out.println("デイレクトリの作成に失敗");
-	                }
-	            }catch(IOException e){
-	                // 例外処理
-	                System.out.println(e);
-	            }
-
-
+	    //ファイルの作成
+	    if(newfile.exists()){
+	        System.out.println("ファイルは作成済みです"+ newfile.getAbsolutePath());
+	    }else{
+	       System.out.println("ファイルはありません"+ newfile.getAbsolutePath());
+	    }
+           try{
+               if (newfile.createNewFile() ) {
+                   System.out.println("ファイルを作成しました");
+               }else{
+                   // ファイルの作成に失敗
+                   System.out.println("ファイルは作成済みです");
+               }
+           }catch(FileNotFoundException e){
+        	   System.out.println(e);
+           }catch(IOException e){
+               // 例外処理
+               System.out.println("例外が発生しました。");
+               System.out.println(e);
+           }
 
 		int end = 0;
 		while(end==0){
