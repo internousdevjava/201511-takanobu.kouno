@@ -39,7 +39,7 @@ public class KisoKadai1 {
 				break;
 			}
 		} catch (java.lang.NumberFormatException e) {
-			System.out.println("数字で入力してください");
+			System.out.println("1-100の範囲で入力してください");
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
